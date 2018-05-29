@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        title Contact form
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet" href="styles/main.min.css")
+    body
+        .modal-window
+            h2 Thank You
+            p for contact us
+            .input-action
+                button.return Return
+        .contact-form
+            form.simple-form(action='#')
+                .input-box
+                    label(for='fn') First name
+                    input.validate_forbidden(onpaste="return false" type='text' id='fn' data-error='field contains forbidden symbols')
+                .input-box
+                    label(for='ln') Last name
+                    input.validate_forbidden(type='text' id='ln' data-error='field contains forbidden symbols')
+                .input-box
+                    label(for='dt') Birthsday
+                    input.validate_empty(type='date' id='dt')
+                .input-box
+                    label Sex
+                    .check-box.not-validate
+                        input.validate_check(type='radio' id='male' name='sex')
+                        label(for='male') Male
+                    .check-box.not-validate
+                        input.validate_check(type='radio' id='female' name='sex')
+                        label(for='female') Female
+                    .check-box.not-validate
+                        input.validate_check(type='radio' id='other' name='sex')
+                        label(for='other') Other
+                .input-box.input-box--select
+                    label(for='ct') Country
+                    select.validate_empty(id='ct')
+                        option(style='display:none')
+                        option(value='1') Ukraine
+                        option(value='2') Germany
+                        option(value='3') Great Britain
+                .input-box
+                    label(for='em') Email
+                    input.validate_email(type='text' id='em' data-error='wrong email address')
+                .input-box
+                    label(for='ps') Password
+                    input.validate_password(type='password' id='ps' data-error='Minimum eight characters, at least one letter and one number')
+                .input-box
+                    label(for='ads') Address
+                    input.validate_forbidden(type='text' id='ads')
+                .input-box.not-validate
+                    label(for='nt') Notes
+                    textarea(id='nt')
+                .input-action
+                    button(type='submit') Submit
+
+        script(src='scripts/main.min.js')
